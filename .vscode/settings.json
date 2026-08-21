@@ -1,0 +1,6 @@
+{
+        "editor.formatOnSave": true,
+        "extensions.closeExtensionDetailsOnViewChange": false,
+        "extensions.supportNodeGlobalNavigator": false,
+        "extensions.allowOpenInModalEditor": false
+}

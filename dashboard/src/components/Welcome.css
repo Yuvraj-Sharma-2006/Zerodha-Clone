@@ -1,0 +1,17 @@
+.main-logo{
+   height:16vh;
+   width:12vw;
+   margin:38vh 44vw;
+}
+
+.authore{
+   /* margin:auto 3rem 2rem auto; */
+   margin : 0 40vw 0 44vw;
+   font-size:larger;
+   font-weight:500;
+}
+
+.welcome{
+   width:100vw;
+   height:100vh;
+}
