@@ -1,0 +1,18 @@
+.aboutContent{
+   font-size:18px;
+   line-height:30px;
+}
+
+.image{
+   border-radius:50%;
+   width:65%;
+}
+
+.post{
+   font-size:16px;
+   margin-left:-10px;
+}
+
+.name{
+   font-weight:400;
+}

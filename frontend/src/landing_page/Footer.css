@@ -1,0 +1,54 @@
+.footer-logo{
+   width:70%;
+}
+
+.logo-link > i{
+  position:relative;
+  top:4px;
+  color:#000000B1;
+  font-size:22px;
+}
+
+.logo-link{
+  margin-right:20px;
+}
+
+.footer-link{
+  display:inline-block;
+  font-size:15px;
+  color:#000000B1;
+  text-decoration:none;
+  margin:6px;
+}
+
+.footer-link-header{
+  margin:0 6px;
+  font-weight:400;
+}
+.my-3{
+  font-size:14px;
+}
+
+
+.content{
+  font-size:12.4px;
+  text-align:justify;
+}
+
+.content a{
+  font-weight:500;
+  text-decoration:none;
+}
+
+.footer{
+  margin:0.5%;
+}
+@media screen and (min-width:1280px){
+ .footer{
+  margin:0 9.5%;
+ }
+
+ .footer .col-lg-3{
+  padding:50px;
+ }
+}

@@ -1,0 +1,55 @@
+.pricing-hero-text{
+  font-weight:500;
+  color:gray;
+  opacity:0.7;
+}
+
+.pricing img{
+  width:240px;
+  min-width:200px;
+}
+
+.pricing p{
+  font-size:17.5px;
+}
+
+.table-responsive{
+  width:96%;
+  margin:0 2rem;
+}
+
+.broker-content{
+  width:99.8%;
+  margin: 0 0.1rem;
+}
+
+.table td{
+   padding-top:13px; 
+   padding-bottom:13px;    
+}
+
+.table-responsive .note{
+  font-size:13px;
+}
+
+.free-flag{ 
+  color:white;
+  background-color:green;
+  padding:2.5px 16px;
+  font-size:13px;
+}
+
+.broker-content .broker-heading{
+  font-size:18px;
+}
+
+.broker-content p,.broker-content li{
+  font-size:13px;
+}
+
+@media screen and (min-width:1100px){
+  .pricing-section,.table-responsive,.broker-content{
+   width:75%;
+   margin:2.5rem 12.5rem;
+  }
+}

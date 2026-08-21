@@ -1,0 +1,24 @@
+.button{
+   font-size:20px;
+   font-weight:500;
+   padding:8px 35px;
+   border-radius:5px;
+   background-color:dodgerblue;
+}
+
+.button:hover{
+   background-color:black;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1440px) {
+   .HomeHero{
+      padding:25px 40px;
+   }
+}
+
+@media screen and (min-width: 512px) {
+   
+    .HomeHero img{
+      height:max-content;
+   }
+}

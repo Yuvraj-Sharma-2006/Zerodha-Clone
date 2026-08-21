@@ -1,0 +1,13 @@
+.pricing-img{
+   width:50%;
+}
+
+.pricing-info{
+  font-size:13px;
+}
+
+@media screen and (min-width:992px) and (max-width: 1090px){
+  .pricing-box{
+    width:50%;
+  }
+}

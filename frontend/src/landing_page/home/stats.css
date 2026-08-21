@@ -1,0 +1,22 @@
+.link{
+  text-decoration: none;
+  color: #1a73e8;
+  font-weight: 500;
+  font-size:17px;
+}
+
+link-hover{
+   font-size:15px;
+   font-weight: 400;
+}
+.link-hover:hover{
+   color:black;
+}
+
+@media screen and (min-width: 992px){
+  .img{
+    margin-top:-8%;
+    max-height:87%;
+    max-width:87%; 
+  }
+}
