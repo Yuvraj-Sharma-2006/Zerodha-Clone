@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Summary = () => {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ const Summary = () => {
       }
 
       const { data } = await axios.post(
-        "http://localhost:3002",
+        `${API_URL}/`,
         {},
         { withCredentials: true },
       );
@@ -35,7 +36,7 @@ const Summary = () => {
       setOpenning(openning);
 
       axios
-        .get("http://localhost:3002/allHoldings", {
+        .get(`${API_URL}/allHoldings`, {
           withCredentials: true,
         })
         .then((res) => {

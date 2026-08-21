@@ -4,6 +4,8 @@ import { useCookies } from "react-cookie";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "../index.css";
+const API_URL = import.meta.env.VITE_API_URL;
+
 const Menu = () => {
   const navigate = useNavigate();
   const [selectedMenu, setSelectedMenu] = useState(0);
@@ -28,7 +30,7 @@ const Menu = () => {
         return;
       }
       const { data } = await axios.post(
-        "http://localhost:3002",
+        `${API_URL}/`,
         {},
         { withCredentials: true },
       );

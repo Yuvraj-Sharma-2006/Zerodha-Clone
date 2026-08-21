@@ -5,6 +5,7 @@ import axios from "axios";
 import GeneralContext from "./GeneralContext";
 import "./BuyActionsWindow.css";
 import { ToastContainer, toast } from "react-toastify";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const BuyActionWindow = ({ uid, price }) => {
   let navigate = useNavigate();
@@ -24,7 +25,7 @@ const BuyActionWindow = ({ uid, price }) => {
   let handleBuyClick = async () => {
     try {
       const { data } = await axios.post(
-        "http://localhost:3002/newOrder",
+        `${API_URL}/newOrder`,
         {
           name: uid,
           quantity: stockQuantity,

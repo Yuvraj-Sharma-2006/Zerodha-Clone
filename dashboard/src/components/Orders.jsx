@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:3002/allOrders", { withCredentials: true })
+      .get(`${API_URL}/allOrders`, { withCredentials: true })
       .then((res) => {
         setOrders(res.data);
       });

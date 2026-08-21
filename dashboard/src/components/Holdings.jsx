@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import VerticalGraph from "./VerticalGraph";
+const API_URL = import.meta.env.VITE_API_URL;
+
 const Holdings = () => {
   const [allHoldings, setAllHoldings] = useState([]);
   const totalInvestment = allHoldings.reduce(
@@ -15,7 +17,7 @@ const Holdings = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3002/allHoldings", { withCredentials: true })
+      .get(`${API_URL}/allHoldings`, { withCredentials: true })
       .then((res) => {
         setAllHoldings(res.data);
       });

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Funds.css";
 import { ToastContainer, toast } from "react-toastify";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Funds = () => {
   const [amount, setAmount] = useState(0);
@@ -22,7 +23,7 @@ const Funds = () => {
 
   const getBalance = async () => {
     try {
-      const { data } = await axios.get("http://localhost:3002/balance", {
+      const { data } = await axios.get(`${API_URL}/balance`, {
         withCredentials: true,
       });
       const update = () => {
@@ -43,7 +44,7 @@ const Funds = () => {
     async function addBalance() {
       try {
         const { data } = await axios.post(
-          "http://localhost:3002/user",
+          `${API_URL}/user`,
           {
             amount: amount,
             mode: "add",
@@ -76,7 +77,7 @@ const Funds = () => {
     async function withDraw() {
       try {
         const { data } = await axios.post(
-          "http://localhost:3002/user",
+        `${API_URL}/user`,
           {
             amount: amount,
             mode: "withDraw",

@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+const API_URL = import.meta.env.VITE_API_URL;
+const FRONTEND_URL = import.meta.env.VITE_FRONTEND_URL;
 
 const Login = () => {
   const navigate = useNavigate();
@@ -39,7 +41,7 @@ const Login = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:3002/login",
+        `${API_URL}/login`,
         {
           ...inputValue,
         },
@@ -147,7 +149,7 @@ const Login = () => {
                     Not have an account?{" "}
                     <Link
                       onClick={() => {
-                        window.location.href = "http://localhost:5174/signup";
+                        window.location.href = `${FRONTEND_URL}/signup`;
                       }}
                     >
                       Signup
