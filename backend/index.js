@@ -8,6 +8,7 @@ const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
 const cookieParser = require("cookie-parser");
 const jwt = require("jsonwebtoken");
+const {MongoStore} = require("connect-mongo");
 const url = process.env.MONGO_URL;
 const port = process.env.PORT || 3002;
 const Frontend_URL = process.env.Frontend_URL;
@@ -24,7 +25,18 @@ app.use(cors(
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(cookieParser());
+
+const sessionStore = MongoStore.create({
+    mongoUrl: url,
+    crypto : {
+        secret : process.env.SESSION_SECRET,
+    },
+    touchAfter: 24 * 3600,
+    ttl: 7 * 24 * 60 * 60
+});
+
 app.use(session({
+    store : sessionStore,
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false
