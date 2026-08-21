@@ -10,6 +10,8 @@ const cookieParser = require("cookie-parser");
 const jwt = require("jsonwebtoken");
 const url = process.env.MONGO_URL;
 const port = process.env.PORT || 3002;
+const Frontend_URL = process.env.Frontend_URL;
+const Dashboard_URL = process.env.Dashboard_URL;
 
 app.use(cors(
     {
