@@ -187,7 +187,6 @@ app.post('/signup', async (req, res, next) => {
         await user.save();
         const token = SecreatToken(user._id);
         res.cookie("token", token, {
-            //withCredentials : true,
             httpOnly: false,
         });
         res.status(201)
@@ -220,7 +219,6 @@ app.post('/login', async (req, res) => {
 
         const token = SecreatToken(existingUser._id);
         res.cookie("token", token, {
-            // withCredentials : true,
             httpOnly: false,
         });
         res.status(201).json({ message: "User logged in successfully", success: true });
