@@ -237,7 +237,7 @@ app.post('/login', async (req, res) => {
             return res.json({ message: "Incorrect password or email" });
         }
 
-        req.session.currUser = user._id;
+        req.session.currUser = existingUser._id;
         const token = SecreatToken(existingUser._id);
         res.cookie("token", token, {
             httpOnly: false,
