@@ -39,7 +39,15 @@ app.use(session({
     store : sessionStore,
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+
+     cookie: {
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
+        maxAge: 7 * 24 * 60 * 60 * 1000
+    }
+
 }));
 
 const { HoldingDataModel } = require("./model/HoldingDataModel");
