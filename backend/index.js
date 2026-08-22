@@ -35,6 +35,8 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+app.set("trust proxy", 1);
+
 const sessionStore = MongoStore.create({
     mongoUrl: url,
     crypto : {
