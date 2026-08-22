@@ -11,12 +11,21 @@ const jwt = require("jsonwebtoken");
 const {MongoStore} = require("connect-mongo");
 const url = process.env.MONGO_URL;
 const port = process.env.PORT || 3002;
-const Frontend_URL = process.env.Frontend_URL;
-const Dashboard_URL = process.env.Dashboard_URL;
+const allowedOrigins = [
+  process.env.Frontend_URL,
+  process.env.Dashboard_URL,
+];
+
 
 app.use(cors(
     {
-        origin: [Frontend_URL, Dashboard_URL],
+        origin: function (origin, callback) {
+                 if (!origin || allowedOrigins.includes(origin)) {
+                   callback(null, true);
+                 } else {
+                   callback(new Error("Not allowed by CORS"));
+                 }
+                },
         methods: ["GET", "POST", "PUT", "DELETE"],
         credentials: true,
     }
@@ -196,6 +205,9 @@ app.post('/signup', async (req, res, next) => {
         const token = SecreatToken(user._id);
         res.cookie("token", token, {
             httpOnly: false,
+            secure: true,                 
+            sameSite: "none",             
+            maxAge: 7 * 24 * 60 * 60 * 1000 
         });
         res.status(201)
             .json({
@@ -225,9 +237,13 @@ app.post('/login', async (req, res) => {
             return res.json({ message: "Incorrect password or email" });
         }
 
+        req.session.currUser = user._id;
         const token = SecreatToken(existingUser._id);
         res.cookie("token", token, {
             httpOnly: false,
+            secure: true,                 
+            sameSite: "none",             
+            maxAge: 7 * 24 * 60 * 60 * 1000 
         });
         res.status(201).json({ message: "User logged in successfully", success: true });
     } catch (err) {
